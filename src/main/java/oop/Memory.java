@@ -65,7 +65,7 @@ public class Memory extends Application {
             @Override
             public void handle(ActionEvent e) {
                 int raskusaste = (int) slider.getValue();
-                System.out.println(raskusaste);
+
                 int suurus = raskusaste;
                 Mängulaud laud = new Mängulaud(suurus);
                 GridPane gridPane = new GridPane();
