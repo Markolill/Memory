@@ -6,7 +6,6 @@ import java.util.Collections;
 public class Mängulaud {
     private static String tähed = "abcdefghijklmonp"; //tähed mida kasutame
     private static String[][] mängulaud;
-    private static String[][] pimelaud;
 
     public static String[][] getMängulaud() {
         return mängulaud;
@@ -18,7 +17,6 @@ public class Mängulaud {
 
     public Mängulaud(int suurus) {
         genereeri(suurus);
-        genereeripime(suurus);
     }
 
     public static void genereeri(int suurus){ //tuleb enne vaadata kas paaris arv, sest muidu ei saa paare
@@ -42,16 +40,6 @@ public class Mängulaud {
         }
         mängulaud = valmis; //genereeri
 
-    }
-
-    public static void genereeripime(int suurus){ //genereerib sama suurusega "pimeda" maatriksi
-        String[][] valmis = new String[suurus][suurus];
-        for (int i = 0, a = 0; i < suurus; i++) { //jaotab maatriksisse
-            for (int j = 0; j < suurus; j++, a++) {
-                valmis[i][j] = "-";
-            }
-        }
-        pimelaud = valmis; //genereeripime
     }
 
 
