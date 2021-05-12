@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -85,7 +87,14 @@ public class Memory extends Application {
         GridPane gridPane = new GridPane();
         Kontroll kontroll = new Kontroll(laud);
         BorderPane border = new BorderPane();
+        VBox vasak = new VBox();
+
+
         Text kell = new Text("0");
+        Text pealkiri = new Text("Kulunud aeg:");
+
+        vasak.getChildren().addAll(pealkiri,kell);
+
         Kell aeg = new Kell();
 
         aeg.startstopp(kell);
@@ -122,8 +131,11 @@ public class Memory extends Application {
         }
         gridPane.setHgap(10);
         gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(0, 50, 0, 50));
 
-        border.setLeft(kell);
+
+        border.setPadding(new Insets(50, 50, 50, 50));
+        border.setLeft(vasak);
         border.setCenter(gridPane);
 
         Scene scene = new Scene(border, 500, 500);
