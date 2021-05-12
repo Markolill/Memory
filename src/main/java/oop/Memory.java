@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -66,10 +67,15 @@ public class Memory extends Application {
             public void handle(ActionEvent e) {
                 int raskusaste = (int) slider.getValue();
 
-                int suurus = raskusaste;
+                int suurus = raskusaste*2;
                 Mängulaud laud = new Mängulaud(suurus);
                 GridPane gridPane = new GridPane();
                 Kontroll kontroll = new Kontroll(laud);
+                BorderPane border = new BorderPane();
+                Text kell = new Text("0");
+                Kell aeg = new Kell();
+
+                aeg.startstopp(kell);
 
                 Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
@@ -89,7 +95,7 @@ public class Memory extends Application {
                         wait.play();
 
                         int veerg = GridPane.getColumnIndex(nupp);
-                        int rida = gridPane.getRowIndex(nupp);
+                        int rida = GridPane.getRowIndex(nupp);
 
                         nupp.setOnMouseClicked(event -> {
                             try {
@@ -104,7 +110,10 @@ public class Memory extends Application {
                 gridPane.setHgap(10);
                 gridPane.setVgap(10);
 
-                Scene scene = new Scene(gridPane, 500, 500);
+                border.setLeft(kell);
+                border.setCenter(gridPane);
+
+                Scene scene = new Scene(border, 500, 500);
                 peaLava.setScene(scene);  // lavale lisatakse stseen
                 peaLava.show();  // lava tehakse nähtavaks
 
