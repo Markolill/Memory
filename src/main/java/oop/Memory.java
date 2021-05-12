@@ -20,7 +20,7 @@ public class Memory extends Application {
 
   @Override
   public void start(Stage peaLava) throws Exception {
-    int suurus = 4; //ainult paaris arvud
+    int suurus = 2;
     Mängulaud laud = new Mängulaud(suurus);
     GridPane gridPane = new GridPane();
     Kontroll kontroll = new Kontroll(laud);

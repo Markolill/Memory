@@ -26,6 +26,7 @@ public class Kontroll {
         a.setText(laud.getElement(asukoht));
         a.setStyle("-fx-background-color: blue;");
 
+
         if (paar.size() >= 2){
             if (laud.getElement(asukohad.get(0)).equals(laud.getElement(asukohad.get(1)))){
                 for (int i = 0; i < 2; i++) {
