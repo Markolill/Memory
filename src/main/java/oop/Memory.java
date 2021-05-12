@@ -169,13 +169,15 @@ public class Memory extends Application {
         Label label1 = new Label("Sisesta oma nimi:");
         label1.setFont(font);
         TextField textField = new TextField ();
+
+        Button sisesta = new Button("Sisesta");
         HBox hb = new HBox();
-        hb.getChildren().addAll(label1, textField);
+        hb.getChildren().addAll(label1, textField,sisesta);
         hb.setSpacing(20);
         gridPane.add(hb,1,1);
 
 
-        Scene scene = new Scene(gridPane, 250, 300);
+        Scene scene = new Scene(gridPane, 300, 300);
 
         return scene;
     }
