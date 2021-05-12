@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Memory extends Application {
     private int raskusaste;
@@ -34,6 +35,7 @@ public class Memory extends Application {
     @Override
     public void start(Stage peaLava) throws Exception {
         peaLava.setTitle("Memory");
+
         peaLava.setScene(algus(peaLava));
         peaLava.show();
     }
@@ -144,6 +146,64 @@ public class Memory extends Application {
         border.setCenter(gridPane);
 
         Scene scene = new Scene(border, suurus*(45)+400, suurus*(45)+150);
+        return scene;
+
+    }
+
+    public Scene edetabel(Stage peaLava) throws Exception {
+
+        List<String> tulemused= Edetabel.loefailist();
+        GridPane gridPane = new GridPane();
+        Font font = Font.font("Arial", FontWeight.BOLD, 15);
+        Font fontTulemused = Font.font("Arial", FontWeight.NORMAL, 10);
+
+        Text tekst = new Text();
+        tekst.setFont(font);
+        tekst.setText("Eelnevad tulemused:");
+        gridPane.add(tekst,1,1);
+        int arv;
+        if (tulemused.size()>20)  arv=20;
+        else arv=tulemused.size();
+        for (int i = 0; i < arv; i++) {
+            Text tulemus = new Text();
+            tulemus.setFont(fontTulemused);
+            tulemus.setText(tulemused.get(i));
+            gridPane.add(tulemus,1,i+2);
+
+        }
+
+
+        Button nupp = new Button("Lõpp");
+        nupp.setStyle("-fx-background-color: gray;");
+        nupp.setMinSize(40, 40);
+        nupp.setFont(font);
+        gridPane.add(nupp, 2, tulemused.size()+3);
+
+        Button nupp1 = new Button("Mängin uuesti");
+        nupp1.setStyle("-fx-background-color: gray;");
+        nupp1.setMinSize(40, 40);
+        nupp1.setFont(font);
+        gridPane.add(nupp1, 1, tulemused.size()+3);
+
+
+        Scene scene = new Scene(gridPane, 250, 300);
+
+        nupp.setOnAction(new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent e) {
+                System.exit(1);
+            }
+        });
+        nupp1.setOnAction(new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent e) {
+                try {
+                    peaLava.setScene(mäng(peaLava));
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        });
         return scene;
 
     }
