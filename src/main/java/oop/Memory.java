@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -30,6 +33,7 @@ public class Memory extends Application {
 
     @Override
     public void start(Stage peaLava) throws Exception {
+        peaLava.setTitle("Memory");
         peaLava.setScene(algus(peaLava));
         peaLava.show();
     }
@@ -63,7 +67,7 @@ public class Memory extends Application {
         gridPane.add(slider, 1, 2);
 
 
-        Scene scene = new Scene(gridPane, 250, 150);
+        Scene scene = new Scene(gridPane, 250, 150, Color.LIGHTSKYBLUE);
 
         nupp.setOnAction(new EventHandler<>() {
             @Override
@@ -88,10 +92,12 @@ public class Memory extends Application {
         Kontroll kontroll = new Kontroll(laud);
         BorderPane border = new BorderPane();
         VBox vasak = new VBox();
+        Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
 
         Text kell = new Text("0");
         Text pealkiri = new Text("Kulunud aeg:");
+        pealkiri.setFont(font);
 
         vasak.getChildren().addAll(pealkiri,kell);
 
@@ -99,7 +105,6 @@ public class Memory extends Application {
 
         aeg.startstopp(kell);
 
-        Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
         for (int i = 0; i < suurus; i++) {
             for (int j = 0; j < suurus; j++) {
@@ -138,7 +143,7 @@ public class Memory extends Application {
         border.setLeft(vasak);
         border.setCenter(gridPane);
 
-        Scene scene = new Scene(border, 500, 500);
+        Scene scene = new Scene(border, suurus*(45)+400, suurus*(45)+150);
         return scene;
 
     }
