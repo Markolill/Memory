@@ -9,12 +9,10 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
@@ -157,6 +155,29 @@ public class Memory extends Application {
         Scene scene = new Scene(border, suurus*(45)+400, suurus*(45)+150);
         return scene;
 
+    }
+    public Scene nimesisestus(Stage peaLava) throws Exception {
+
+
+        GridPane gridPane = new GridPane();
+        Font font = Font.font("Arial", FontWeight.BOLD, 15);
+
+        Text tekst=new Text("Sinu aeg oli: ");
+        tekst.setFont(font);
+        gridPane.add(tekst,1,0);
+
+        Label label1 = new Label("Sisesta oma nimi:");
+        label1.setFont(font);
+        TextField textField = new TextField ();
+        HBox hb = new HBox();
+        hb.getChildren().addAll(label1, textField);
+        hb.setSpacing(20);
+        gridPane.add(hb,1,1);
+
+
+        Scene scene = new Scene(gridPane, 250, 300);
+
+        return scene;
     }
 
     public Scene edetabel(Stage peaLava) throws Exception {
