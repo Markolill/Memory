@@ -4,11 +4,11 @@ import java.util.Collections;
 
 
 public class Mängulaud {
-    private static String tähed = "abcdefghijklmonp"; //tähed mida kasutame
-    private static String[][] mängulaud;
+    private String tähed = "abcdefghijklmonp"; //tähed mida kasutame
+    private String[][] mängulaud;
 
 
-    public static String getElement(int[] asukoht){
+    public String getElement(int[] asukoht){
         return mängulaud[asukoht[0]][asukoht[1]];
     }
 
@@ -16,7 +16,7 @@ public class Mängulaud {
         genereeri(suurus);
     }
 
-    public static void genereeri(int suurus){ //tuleb enne vaadata kas paaris arv, sest muidu ei saa paare
+    public void genereeri(int suurus){ //tuleb enne vaadata kas paaris arv, sest muidu ei saa paare
 
         ArrayList<String> paarid = new ArrayList<>();
         int random_int;
@@ -37,12 +37,6 @@ public class Mängulaud {
         }
         mängulaud = valmis; //genereeri
 
-    }
-
-
-    public static void mängulaud(int rida,int veerg,int rida2, int veerg2,String element){
-        mängulaud[rida][veerg]=element;
-        mängulaud[rida2][veerg2]=element;
     }
 
 }

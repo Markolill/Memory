@@ -10,15 +10,15 @@ import java.util.List;
 
 public class Kontroll {
 
-    private static List<Node> paar = new ArrayList<>();
-    private static List<int[]> asukohad = new ArrayList<>();
-    private static Mängulaud laud;
+    private  List<Node> paar = new ArrayList<>();
+    private  List<int[]> asukohad = new ArrayList<>();
+    private  Mängulaud laud;
 
     public Kontroll(Mängulaud laud) {
         this.laud = laud;
     }
 
-    public static void lisa(Node nupp, int rida, int veerg) throws InterruptedException {
+    public void lisa(Node nupp, int rida, int veerg) throws InterruptedException {
         int[] asukoht = {rida, veerg};
         asukohad.add(asukoht);
         paar.add(nupp);
@@ -34,8 +34,6 @@ public class Kontroll {
                     b.setStyle("-fx-background-color: green;");
                     b.setDisable(true);
                 }
-                paar.clear();
-                asukohad.clear();
             }
             else {
                 for (int i = 0; i < 2; i++) {
@@ -53,9 +51,9 @@ public class Kontroll {
                     wait.play();
                 }
 
-                paar.clear();
-                asukohad.clear();
             }
+            paar.clear();
+            asukohad.clear();
         }
     }
 }

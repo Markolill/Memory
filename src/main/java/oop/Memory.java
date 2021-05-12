@@ -1,5 +1,6 @@
 package oop;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.Arrays;
 
@@ -30,13 +32,18 @@ public class Memory extends Application {
 
     for (int i = 0; i < suurus; i++) {
       for (int j = 0; j < suurus; j++) {
-        Button nupp = new Button("");
+        PauseTransition wait = new PauseTransition(Duration.seconds(3));
+        Button nupp = new Button(laud.getElement(new int[]{i,j}));
 
         nupp.setStyle("-fx-background-color: gray;");
         nupp.setMinSize(40,40);
         nupp.setFont(font);
 
         gridPane.add(nupp,i,j);
+
+
+        wait.setOnFinished(event -> nupp.setText(""));
+        wait.play();
 
         int veerg = GridPane.getColumnIndex(nupp);
         int rida = gridPane.getRowIndex(nupp);
