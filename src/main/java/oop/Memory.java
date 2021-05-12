@@ -2,6 +2,7 @@ package oop;
 
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
@@ -9,6 +10,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
@@ -17,31 +20,37 @@ public class Memory extends Application {
 
   @Override
   public void start(Stage peaLava) throws Exception {
+    int suurus = 4; //ainult paaris arvud
+    Mängulaud laud = new Mängulaud(suurus);
     GridPane gridPane = new GridPane();
+    Kontroll kontroll = new Kontroll(laud);
 
-    for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
-        ToggleButton nupp = new ToggleButton("x");
-        nupp.setMinSize(30,30);
-        //nupp.setOnMouseClicked(event -> nupp.);
+    Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
+
+    for (int i = 0; i < suurus; i++) {
+      for (int j = 0; j < suurus; j++) {
+        Button nupp = new Button("");
+
+        nupp.setStyle("-fx-background-color: gray;");
+        nupp.setMinSize(40,40);
+        nupp.setFont(font);
 
         gridPane.add(nupp,i,j);
 
+        int veerg = GridPane.getColumnIndex(nupp);
+        int rida = gridPane.getRowIndex(nupp);
+
+        nupp.setOnMouseClicked(event -> {
+          try {
+            kontroll.lisa(nupp, rida, veerg);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("viga");
+          }
+        });
       }
-
     }
-    System.out.println(Arrays.toString(gridPane.getChildren().toArray()));
-
-
-    //gridPane.add(button1, 0, 0, 1, 1);
-    //gridPane.add(button2, 1, 0, 1, 1);
-    //gridPane.add(button3, 2, 0, 1, 1);
-    //gridPane.add(button4, 0, 1, 1, 1);
-    //gridPane.add(button5, 1, 1, 1, 1);
-    //gridPane.add(button6, 2, 1, 1, 1);
-    //gridPane.add(kast, 3, 3, 1, 1);
-
     gridPane.setHgap(10);
     gridPane.setVgap(10);
 
