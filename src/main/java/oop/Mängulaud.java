@@ -7,9 +7,6 @@ public class Mängulaud {
     private static String tähed = "abcdefghijklmonp"; //tähed mida kasutame
     private static String[][] mängulaud;
 
-    public static String[][] getMängulaud() {
-        return mängulaud;
-    }
 
     public static String getElement(int[] asukoht){
         return mängulaud[asukoht[0]][asukoht[1]];
