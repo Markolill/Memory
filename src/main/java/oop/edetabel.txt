@@ -2,3 +2,5 @@ Raskusaste: 1, nimi: kalle, tulemus: 10
 Raskusaste: 1, nimi: Malle, tulemus: 11
 Raskusaste: 1, nimi: Tiiu, tulemus: 5
 Raskusaste: 1, nimi: Toomas, tulemus: 4
+
+Raskusaste: 1, nimi: Marko, tulemus: 8

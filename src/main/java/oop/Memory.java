@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -134,7 +135,7 @@ public class Memory extends Application {
                     } catch (Valmis e){
                         aeg.startstopp(kell);
                         try {
-                            peaLava.setScene(edetabel(peaLava));
+                            peaLava.setScene(nimesisestus(peaLava, kell.getText()));
                         } catch (Exception exception) {
                             exception.printStackTrace();
                         }
@@ -156,13 +157,13 @@ public class Memory extends Application {
         return scene;
 
     }
-    public Scene nimesisestus(Stage peaLava) throws Exception {
+    public Scene nimesisestus(Stage peaLava, String aeg) throws Exception {
 
 
         GridPane gridPane = new GridPane();
         Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
-        Text tekst=new Text("Sinu aeg oli: ");
+        Text tekst=new Text("Sinu aeg oli: "+ aeg);
         tekst.setFont(font);
         gridPane.add(tekst,1,0);
 
@@ -175,6 +176,17 @@ public class Memory extends Application {
         hb.getChildren().addAll(label1, textField,sisesta);
         hb.setSpacing(20);
         gridPane.add(hb,1,1);
+
+        sisesta.setOnAction(event -> {
+            try {
+                Edetabel.kirjutaFaili(textField.getText(),raskusaste,Integer.parseInt(aeg));
+                peaLava.setScene(edetabel(peaLava));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
 
         Scene scene = new Scene(gridPane, 300, 300);
