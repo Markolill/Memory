@@ -29,7 +29,6 @@ public class Memory extends Application {
 
     Font font = Font.font("Arial", FontWeight.BOLD, 15);
 
-
     for (int i = 0; i < suurus; i++) {
       for (int j = 0; j < suurus; j++) {
         PauseTransition wait = new PauseTransition(Duration.seconds(3));
@@ -70,3 +69,5 @@ public class Memory extends Application {
     launch(args);
   }
 }
+
+
