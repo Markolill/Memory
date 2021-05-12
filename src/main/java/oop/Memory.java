@@ -189,7 +189,7 @@ public class Memory extends Application {
         });
 
 
-        Scene scene = new Scene(gridPane, 300, 300);
+        Scene scene = new Scene(gridPane, 400, 100);
 
         return scene;
     }
