@@ -13,12 +13,17 @@ public class Kontroll {
     private  List<Node> paar = new ArrayList<>();
     private  List<int[]> asukohad = new ArrayList<>();
     private  Mängulaud laud;
+    private  int õigeid;
+    private int suurus;
 
-    public Kontroll(Mängulaud laud) {
+    public Kontroll(Mängulaud laud, int suurus) {
+        õigeid = 0;
         this.laud = laud;
+        this.suurus = suurus;
+
     }
 
-    public void lisa(Node nupp, int rida, int veerg) throws InterruptedException {
+    public void lisa(Node nupp, int rida, int veerg) throws InterruptedException, Valmis {
         int[] asukoht = {rida, veerg};
         asukohad.add(asukoht);
         paar.add(nupp);
@@ -29,6 +34,10 @@ public class Kontroll {
 
         if (paar.size() >= 2){
             if (laud.getElement(asukohad.get(0)).equals(laud.getElement(asukohad.get(1)))){
+                õigeid += 1;
+                if (õigeid == suurus){
+                    throw new Valmis();
+                }
                 for (int i = 0; i < 2; i++) {
                     Button b = (Button)paar.get(i);
                     b.setStyle("-fx-background-color: green;");

@@ -2,6 +2,7 @@ package oop;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -91,7 +92,7 @@ public class Memory extends Application {
         int suurus = raskusaste*2;
         Mängulaud laud = new Mängulaud(suurus);
         GridPane gridPane = new GridPane();
-        Kontroll kontroll = new Kontroll(laud);
+        Kontroll kontroll = new Kontroll(laud, suurus);
         BorderPane border = new BorderPane();
         VBox vasak = new VBox();
         Font font = Font.font("Arial", FontWeight.BOLD, 15);
@@ -132,6 +133,14 @@ public class Memory extends Application {
                     } catch (InterruptedException g) {
                         g.printStackTrace();
                         System.out.println("viga");
+                    } catch (Valmis e){
+                        aeg.startstopp(kell);
+                        try {
+                            peaLava.setScene(edetabel(peaLava));
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+
                     }
                 });
             }
@@ -191,7 +200,7 @@ public class Memory extends Application {
         nupp.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent e) {
-                System.exit(1);
+                Platform.exit();
             }
         });
         nupp1.setOnAction(new EventHandler<>() {
