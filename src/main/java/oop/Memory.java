@@ -163,8 +163,8 @@ public class Memory extends Application {
 
         List<String> tulemused= Edetabel.loefailist();
         GridPane gridPane = new GridPane();
-        Font font = Font.font("Arial", FontWeight.BOLD, 15);
-        Font fontTulemused = Font.font("Arial", FontWeight.NORMAL, 10);
+        Font font = Font.font("Arial", FontWeight.BOLD, 20);
+        Font fontTulemused = Font.font("Arial", FontWeight.NORMAL, 15);
 
         Text tekst = new Text();
         tekst.setFont(font);
@@ -195,7 +195,7 @@ public class Memory extends Application {
         gridPane.add(nupp1, 1, tulemused.size()+3);
 
 
-        Scene scene = new Scene(gridPane, 250, 300);
+        Scene scene = new Scene(gridPane, 400, 300);
 
         nupp.setOnAction(new EventHandler<>() {
             @Override
@@ -207,7 +207,7 @@ public class Memory extends Application {
             @Override
             public void handle(ActionEvent e) {
                 try {
-                    peaLava.setScene(mäng(peaLava));
+                    peaLava.setScene(algus(peaLava));
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -219,7 +219,6 @@ public class Memory extends Application {
 
 
     public static void main(String[] args) {
-
         launch(args);
     }
 }
