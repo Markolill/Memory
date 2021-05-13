@@ -37,7 +37,7 @@ public class Kontroll {
         if (paar.size() >= 2) {
             if (laud.getElement(asukohad.get(0)).equals(laud.getElement(asukohad.get(1)))) {
                 õigeid += 1;
-                if (õigeid == suurus) {
+                if (õigeid == ((suurus/2)*(suurus/2))*2) {
                     throw new Valmis();
                 }
                 for (int i = 0; i < 2; i++) {
