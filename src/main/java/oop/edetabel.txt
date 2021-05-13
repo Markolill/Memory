@@ -5,3 +5,4 @@ Raskusaste: 1, nimi: Toomas, tulemus: 4
 Raskusaste: 1, nimi: Marko, tulemus: 8
 Raskusaste: 1, nimi: Dev, tulemus: 6
 Raskusaste: 1, nimi: Dev, tulemus: 6
+Raskusaste: 1, nimi: TestLv1, tulemus: 8
