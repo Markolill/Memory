@@ -24,7 +24,7 @@ public class Kontroll {
 
     }
 
-
+    //Kui kasutaja vajutab nuppu lisatakse nupp koos asukoha parameetriga järjendisse
     public void lisa(Node nupp, int rida, int veerg) throws InterruptedException, Valmis {
         int[] asukoht = {rida, veerg};
         asukohad.add(asukoht);
@@ -33,11 +33,11 @@ public class Kontroll {
         a.setText(laud.getElement(asukoht));
         a.setStyle("-fx-background-color: blue;");
 
-
+        //kui järjendis on kaks nuppu, siis kontrollitakse, kas valik on korrektne
         if (paar.size() >= 2) {
             if (laud.getElement(asukohad.get(0)).equals(laud.getElement(asukohad.get(1)))) {
                 õigeid += 1;
-                if (õigeid == ((suurus/2)*(suurus/2))*2) {
+                if (õigeid == ((suurus/2)*(suurus/2))*2) { //kui kõik vastused on leitud visatakse Valmis(), mis suunab mängu edasi.
                     throw new Valmis();
                 }
                 for (int i = 0; i < 2; i++) {
@@ -45,7 +45,7 @@ public class Kontroll {
                     b.setStyle("-fx-background-color: green;");
                     b.setDisable(true);
                 }
-            } else {
+            } else { //kui paar ei ole õige värvitakse ruudud punaseks oodatakse 1 sekund ja nupud taastavad algse vormingu.
                 for (int i = 0; i < 2; i++) {
                     Button b = (Button) paar.get(i);
                     b.setStyle("-fx-background-color: red;");

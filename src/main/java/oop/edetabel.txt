@@ -1,13 +1,10 @@
 Raskusaste: 1, nimi: kalle, tulemus: 10
 Raskusaste: 1, nimi: Malle, tulemus: 11
 Raskusaste: 1, nimi: Tiiu, tulemus: 5
-Raskusaste: 1, nimi: Toomas, tulemus: 4
-Raskusaste: 1, nimi: Marko, tulemus: 8
-Raskusaste: 1, nimi: Dev, tulemus: 6
-Raskusaste: 1, nimi: Dev, tulemus: 6
 Raskusaste: 1, nimi: TestLv1, tulemus: 8
 Raskusaste: 1, nimi: Test1, tulemus: 5
 Raskusaste: 2, nimi: Testlv2, tulemus: 26
 Raskusaste: 3, nimi: TestLv3, tulemus: 97
 Raskusaste: 4, nimi: TestLv4, tulemus: 213
 Raskusaste: 5, nimi: TestLv5, tulemus: 460
+Raskusaste: 2, nimi: Marko, tulemus: 28
