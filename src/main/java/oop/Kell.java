@@ -12,7 +12,6 @@ public class Kell {
 
 
     public void startstopp(Node node){
-        Text kell = (Text)node;
         Timeline aeg = new Timeline(new KeyFrame(Duration.seconds(0),event -> uusaeg(node)), new KeyFrame(Duration.seconds(1)));
         aeg.setCycleCount(Animation.INDEFINITE);
         if (algus){
